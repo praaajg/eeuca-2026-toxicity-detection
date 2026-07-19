@@ -27,3 +27,14 @@ predictions.zip
 .vscode/
 *.swp
 .DS_Store
+
+# Logs and outputs
+*.log
+results/
+runs/
+
+# Paper PDF
+*.pdf
+
+# Zone.Identifier files (Windows NTFS alternate streams)
+*:Zone.Identifier

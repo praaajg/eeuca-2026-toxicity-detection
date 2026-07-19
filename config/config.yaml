@@ -1,36 +1,17 @@
 data:
-  # train_text: "data/augmented_jigsaw/jigsaw_augmented_text.csv"
-  # train_label: "data/augmented_jigsaw/jigsaw_augmented_label.csv"
+  train_text: "data/train/train_index_text.csv"
+  train_label: "data/train/train_index_label.csv"
   val_text: "data/val/val_index_text.csv"
   val_label: "data/val/val_index_label.csv"
   test_text: "data/test_index_text.csv"
-  train_text: "data/train/train_index_text.csv"
-  train_label: "data/train/train_index_label.csv"
-  
-  # Set to true to use the larger augmented dataset
-  use_augmented: false
 
-  # Resampling settings to handle class imbalance
-  resampling:
-    enabled: false
-    # Target samples for Class 0 (undersampling)
-    undersample_target: 1000 
-    # Minimum samples for rare classes (oversampling)
-    oversample_minimum: 1000
-
-# Models to train
-# Comment out models you don't want to train
 models:
   xlm-roberta: "xlm-roberta-base"
   m-bert: "bert-base-multilingual-uncased"
-  # Base text classification model
-  deberta: "microsoft/deberta-v3-base"
-  mmbert: "jhu-clsp/mmBERT-base" # or jhu-clsp/mmBERT-small"
   m-distilbert: "distilbert-base-multilingual-cased"
-  m-deberta: "microsoft/mdeberta-v3-base"
   toxic-xlm-roberta: "unitary/multilingual-toxic-xlm-roberta"
+  mmbert: "jhu-clsp/mmBERT-base"
 
-# Training hyperparameters
 training:
   max_length: 32
   batch_size: 64
@@ -40,18 +21,6 @@ training:
   early_stopping_patience: 3
   num_classes: 6
 
-# LLM models for train_llm.py
-llm_models:
-  # qwen2.5-1.5b: "Qwen/Qwen2.5-1.5B-Instruct"
-  # qwen2.5-7b: "Qwen/Qwen2.5-7B-Instruct"
-
-# LoRA configuration for efficient fine-tuning
-lora:
-  r: 8
-  alpha: 16
-  dropout: 0.1
-
-# Label mapping (GameTox categories)
 labels:
   0: "Non-toxic"
   1: "Insults and Flaming"
